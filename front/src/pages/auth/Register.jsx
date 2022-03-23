@@ -1,5 +1,5 @@
 import React from "react";
-import { apiUrl } from "../helper"
+import { apiUrl } from "../../helper"
 import Axios from "axios"
 
 class Register extends React.Component {

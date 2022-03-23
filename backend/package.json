@@ -1,11 +1,12 @@
 {
-  "name": "jwtexpress",
+  "name": "backend",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "wisnuazfar",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
@@ -13,8 +14,6 @@
     "express-bearer-token": "^2.4.0",
     "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
-    "nodemailer": "^6.7.2"
-  },
-  "devDependencies": {},
-  "description": ""
+    "node-mailer": "^0.1.1"
+  }
 }

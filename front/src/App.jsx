@@ -7,9 +7,9 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import './assets/css/styles.css';
 
 import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Authentication from "./pages/Authentication";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
+import Authentication from "./pages/auth/Authentication";
 
 class App extends React.Component {
   render(){

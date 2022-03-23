@@ -1,25 +1,39 @@
 import React from "react";
+import HomeComponent from "../components/HomeComponent"
+import ListPageComponent from "../components/ListPageComponent"
+import { verifyToken } from "../helper/auth"
 
 class Home extends React.Component {
+    state = {
+        statusLogin: true,
+    }
+
+    fetchCheckingLogin = () => {
+        if(localStorage.getItem("token_shutter") && localStorage.getItem("status")) {
+            let token_shutter = localStorage.getItem("token_shutter")
+            let status = localStorage.getItem("status")
+            let decryptStatus = JSON.parse(verifyToken(status))
+
+            if((decryptStatus.login === "success" && token_shutter !== "")){
+                this.setState({statusLogin: true})
+            }
+        }
+    }
+
+    componentDidMount() {
+        this.fetchCheckingLogin()
+    }
+
    render(){
        return(
-           <div className="container-fluid home-content">
-               <div className="d-flex justify-content-center home-section">
-                   <img src="https://cdn.discordapp.com/attachments/890238141687009300/954554014538825838/absurd.design_-_Chapter_1_-_07.png" alt="ilustrator_laptop" />
-               </div>
-               <div className="d-flex justify-content-center mt-4">
-                   <div className="col-7 col-md-3 text-center text-justify">
-                       <p className="head-font">Enterprise team collaboration.</p>
-                       <p className="text-muted">
-                           Bring your files your tools, projects and people including a new mobile and desktop application.
-                       </p>
-                   </div>
-               </div>
-               <div className="d-flex justify-content-center mt-4">
-                   <a href="/login" className="btn btn-dark mx-1 rounded-button">Login</a>
-                   <a href="/register" className="btn btn-dark mx-1 rounded-button">Register</a>
-               </div>
-           </div>
+           <>
+            {
+                this.state.statusLogin ? 
+                    <ListPageComponent />
+                :
+                    <HomeComponent />
+            }
+           </>
        )
    }
 }
